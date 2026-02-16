@@ -32,23 +32,20 @@ public class Ex02 {
     String compute(int a, int b, int c) {
         String output = null;
 
-        if(a <= 0 || b <= 0 || c <= 0){
+        if (a <= 0 || b <= 0 || c <= 0) {
             return "Erro";
         }
 
-        if((a + b) <= c || (a + c) <= b || (b + c) <= a) {
+        if ((a + b) <= c || (a + c) <= b || (b + c) <= a) {
             output = "Nao forma triangulo";
-        }
-        else {
-            if (a != b && b != c && a != c){
+        } else {
+            if (a != b && b != c && a != c) {
                 output = "Escaleno";
             }
 
             if (a == b && b == c) {
                 output = "Equilatero";
-            }
-
-            else {
+            } else {
                 output = "Isosceles";
             }
         }
