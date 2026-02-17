@@ -1,5 +1,7 @@
 package br.edu.ifsp.list01;
 
+import java.util.Scanner;
+
 /*
     Osmar adora chocolates e vai para a loja com N dinheiro no bolso. O preço de cada chocolate é C.
     A loja oferece um desconto: para cada M embalagens que ele dá para a loja, ele ganha um chocolate grátis.
@@ -18,14 +20,27 @@ package br.edu.ifsp.list01;
 public class Ex04 {
 
     public static void main(String[] args) {
-        //Leia o input
-        //Crie uma variável do tipo deste arquivo. Exemplo: Ex02 ex = new Ex02();
-        //Escreva o resultado da chamada do método compute() aqui
+        Scanner scanner = new Scanner(System.in);
+        final int n = scanner.nextInt();
+        final int c = scanner.nextInt();
+        final int m = scanner.nextInt();
+        Ex04 ex04 = new Ex04();
+        System.out.println(ex04.compute(n, c, m));
     }
 
     int compute(int n, int c, int m) {
-        int output =  -1;
-        //put your logic here
-        return output;
+        int totChoco = n / c;
+        int embalagensPraTrocar = totChoco;
+
+        while (embalagensPraTrocar >= m) {
+
+            int novosChoco = embalagensPraTrocar / m;
+            int sobras = embalagensPraTrocar % m;
+            totChoco += novosChoco;
+            embalagensPraTrocar = novosChoco + sobras;
+
+        }
+
+        return totChoco;
     }
 }
