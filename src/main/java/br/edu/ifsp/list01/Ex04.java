@@ -29,18 +29,23 @@ public class Ex04 {
     }
 
     int compute(int n, int c, int m) {
-        int totChoco = n / c;
-        int embalagensPraTrocar = totChoco;
 
-        while (embalagensPraTrocar >= m) {
-
-            int novosChoco = embalagensPraTrocar / m;
-            int sobras = embalagensPraTrocar % m;
-            totChoco += novosChoco;
-            embalagensPraTrocar = novosChoco + sobras;
-
+        if (n < c) {
+            return 0;
         }
 
-        return totChoco;
+        int tot_choc = n / c;
+        int embalagens_para_trocar = tot_choc;
+
+        while (embalagens_para_trocar >= m) {
+            int novosChoco = embalagens_para_trocar / m;
+            int sobras = embalagens_para_trocar % m;
+
+            tot_choc += novosChoco;
+            embalagens_para_trocar = sobras + novosChoco;
+        }
+
+        return tot_choc;
+
     }
 }
